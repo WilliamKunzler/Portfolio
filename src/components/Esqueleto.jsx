@@ -12,8 +12,9 @@ function Esqueleto() {
       </div>
 
       <div className="flex flex-col gap-30 px-4 md:px-50">
-        <Experience />
         <About/>
+        <Experience />
+        
       </div>
     </div>
   )
