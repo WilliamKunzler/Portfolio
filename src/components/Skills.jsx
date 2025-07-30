@@ -18,25 +18,24 @@ import { SiCanva } from "react-icons/si";
 import { SiApacheecharts } from "react-icons/si";
 import { SiC } from "react-icons/si";
 
-function Experience(){
+function Experience() {
 
-const tecnologias = [
-  { name: 'Python', icon: <FaPython  /> },
-  { name: 'Flask', icon: <SiFlask />},
-  { name: 'Flutter', icon: <FaFlutter /> },
-  { name: 'Figma', icon: <IoLogoFigma /> },
-  { name: 'C#', icon: <SiC />},
-  { name: 'JavaScript', icon: <FaSquareJs /> },
-  { name: 'CSS', icon: <BiLogoCss3 /> },
-  { name: 'HTML', icon: <FaHtml5 />},
-  { name: 'React', icon: <FaReact /> },
-  { name: 'Looker', icon: <SiLooker /> },
-  { name: 'Qlik Sense', icon: <SiQlik />},
-  { name: 'MySQL', icon: <DiMysql />},
-  { name: 'Canva', icon: <SiCanva /> },
-  { name: 'Echarts', icon: <SiApacheecharts />}
-];
-
+    const tecnologias = [
+        { name: 'Python', icon: <FaPython /> },
+        { name: 'Flask', icon: <SiFlask /> },
+        { name: 'Flutter', icon: <FaFlutter /> },
+        { name: 'Figma', icon: <IoLogoFigma /> },
+        { name: 'C#', icon: <SiC /> },
+        { name: 'JavaScript', icon: <FaSquareJs /> },
+        { name: 'CSS', icon: <BiLogoCss3 /> },
+        { name: 'HTML', icon: <FaHtml5 /> },
+        { name: 'React', icon: <FaReact /> },
+        { name: 'Looker', icon: <SiLooker /> },
+        { name: 'Qlik Sense', icon: <SiQlik /> },
+        { name: 'MySQL', icon: <DiMysql /> },
+        { name: 'Canva', icon: <SiCanva /> },
+        { name: 'Echarts', icon: <SiApacheecharts /> }
+    ];
 
     return (
         <div className="flex flex-col gap-8 text-white">
@@ -54,13 +53,13 @@ const tecnologias = [
                         className="group w-[120px] h-[120px] flex flex-col items-center justify-center p-4 rounded-2xl shadow-lg bg-[#1e1e1e] transform transition-all duration-300 hover:scale-110 hover:z-10 relative"
                     >
                         {React.cloneElement(item.icon, {
-                        className: "size-10 text-white transition-colors duration-300 group-hover:text-[#F50057]"
+                            className: "size-10 text-white transition-colors duration-300 group-hover:text-[#F50057]"
                         })}
                         <span className="absolute bottom-3 text-sm text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-300 text-center pointer-events-none">
-                        {item.name}
+                            {item.name}
                         </span>
                     </div>
-                    ))}
+                ))}
 
             </div>
         </div>

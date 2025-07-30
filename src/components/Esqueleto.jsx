@@ -10,10 +10,9 @@ function Esqueleto() {
         <NavBar />
         <Hero />
       </div>
-
       <div className="flex flex-col gap-30 px-4 md:px-50">
         <Experience />
-        <About/>
+        <About />
       </div>
     </div>
   )
