@@ -1,71 +1,74 @@
-import { useState } from 'react'
-import { RiMenu2Fill } from "react-icons/ri";
-import { IoMdClose } from "react-icons/io"; 
+// src/components/NavBar.jsx
+import React, { useState } from 'react';
+import { List, X } from '@phosphor-icons/react';
+import ThemeToggle from './ThemeToggle';
 
-function NavBar() {
-  const [mobile, setMobile] = useState(false)
-  const navElements = ['Home', 'About me', 'Skills', 'Projects', 'Contact']
+const NavBar = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <div className="fixed top-0 left-0 w-full bg-[#222222] text-white px-6 py-4 flex justify-between items-center z-50">
-      {/* Ícone hambúrguer à esquerda */}
-      <div className='md:hidden'>
-        <RiMenu2Fill 
-          size={28} 
-          className='cursor-pointer' 
-          onClick={() => setMobile(true)} 
-        />
-      </div>
+    const navLinks = [
+        { name: 'Sobre Mim', href: '#about' },
+        { name: 'Habilidades', href: '#skills' },
+        { name: 'Projetos', href: '#projects' },
+        { name: 'Contato', href: '#contact' },
+    ];
 
-      {/* Menu desktop */}
-      <div className='hidden md:flex gap-10 mx-auto'>
-        {navElements.map((item, idx) => (
-          <h1
-            key={idx}
-            className='relative cursor-pointer after:content-[""] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#F50057] after:transition-all after:duration-300 hover:after:w-full'
-          >
-            {item}
-          </h1>
-        ))}
-      </div>
-      
-      {/* Menu Mobile Tela Cheia */}
-      {mobile && (
-        <div className='fixed inset-0 bg-[#222] text-white flex flex-col p-6 z-50'>
+    return (
+        <nav className="fixed w-full top-0 z-50 bg-light/80 dark:bg-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    <div className="flex-shrink-0">
+                        <a href="#" className="font-bold text-xl tracking-tighter text-primary dark:text-blue-400">
+                            WK.
+                        </a>
+                    </div>
 
-          {/* Botão de fechar */}
-          <div className='flex justify-end'>
-            <button
-              className='text-[#F50057] text-3xl'
-              onClick={() => setMobile(false)}
-              aria-label="Fechar menu"
-            >
-              <IoMdClose />
-            </button>
-          </div>
+                    <div className="hidden md:block">
+                        <div className="ml-10 flex items-center space-x-8">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary dark:hover:text-blue-400 transition-colors"
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                            <ThemeToggle />
+                        </div>
+                    </div>
 
-          {/* Links do menu */}
-          <div className='flex flex-col justify-center items-center h-full gap-10 mt-10 text-xl'>
-            {navElements.map((item) => (
-              <h1
-                key={item}
-                className="
-                  cursor-pointer 
-                  relative 
-                  after:block after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-[#F50057]
-                  after:transition-all after:duration-300 
-                  hover:after:w-full
-                "
-              >
-                {item}
-              </h1>
-            ))}
-          </div>
+                    <div className="-mr-2 flex md:hidden">
+                        <ThemeToggle />
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="ml-4 inline-flex items-center justify-center p-2 rounded-md text-gray-800 dark:text-gray-200 hover:text-primary focus:outline-none"
+                        >
+                            {isOpen ? <X size={24} /> : <List size={24} />}
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        </div>
-      )}
-    </div>
-  )
-}
+            {/* Mobile menu */}
+            {isOpen && (
+                <div className="md:hidden bg-light dark:bg-dark border-b border-gray-200 dark:border-gray-800 shadow-lg">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className="block px-3 py-2 rounded-md text-base font-medium hover:text-primary dark:hover:text-blue-400"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
+};
 
-export default NavBar
+export default NavBar;
