@@ -7,6 +7,14 @@ import { GithubLogo, Link as LinkIcon } from '@phosphor-icons/react';
 const Projects = () => {
     const projects = [
         {
+            title: 'Restaurant Page',
+            description: 'Landing page desenvolvida para um restaurante fictício, com foco em apresentação institucional, identidade visual moderna e navegação intuitiva.',
+            tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+            github: 'https://github.com/WilliamKunzler/restaurant_page',
+            demo: 'https://williamkunzler.github.io/restaurant_page/',
+            color: 'bg-orange-500',
+        },
+        {
             title: 'Virteaching',
             description: 'Projeto Integrador 2024 da turma 3F - Grupo 5. Plataforma educacional para facilitar o ensino e aprendizagem.',
             tech: ['CSS', 'HTML', 'JavaScript'],
