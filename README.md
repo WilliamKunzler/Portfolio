@@ -13,7 +13,6 @@ Criar uma aplicação web moderna para:
 
 - Apresentar projetos desenvolvidos
 - Demonstrar habilidades técnicas
-- Integrar visualizações e embeds
 - Consolidar identidade profissional online
 
 ---
@@ -24,10 +23,8 @@ Criar uma aplicação web moderna para:
 - Vite  
 - Tailwind CSS  
 - Framer Motion (animações)  
-- Looker Embed SDK  
 - React Icons / Phosphor Icons  
 - tsParticles (efeitos visuais)  
-- GitHub Pages (deploy estático)
 
 ---
 
